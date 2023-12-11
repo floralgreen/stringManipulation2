@@ -2,12 +2,15 @@ public class UnicodeFinder {
 
     public StringBuilder unicodeAtIndex(String myString, int index) {
         StringBuilder result = new StringBuilder();
-        result.append("Il codice Unicode di '" + myString.charAt(index) + "' è: ");
 
         char character = myString.charAt(index);
-        int code = ((int) character);
 
-        result.append(code);
+        result.append("Il carattere al indice ")
+                .append(index)
+                .append(" è: ")
+                .append("\\u") // u unicode
+                .append(String.format("%04x", (int)character)); //%04x formatta esadecimale
+
         return result;
     }
 
